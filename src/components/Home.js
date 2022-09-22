@@ -1,11 +1,12 @@
 import React from "react";
+import Products from "./Products";
 
 export default function Home() {
   return (
     <div className="hero">
       <div className="card text-bg-dark border-0">
         <img
-          src="/assets/bg.jpg"
+          src="/assets/bg.png"
           className="card-img"
           alt="Background"
           height={600}
@@ -19,6 +20,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Products />
     </div>
   );
 }
