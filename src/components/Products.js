@@ -21,7 +21,49 @@ export default function Products() {
       };
     };
     getProducts();
-  });
+  }, []);
+
+  const Loading = () => {
+    return <>Loading...</>;
+  };
+
+  const ShowProducts = () => {
+    return (
+      <>
+        <div className="button d-flex justify-content-center mb-5 pb-5">
+          <div className="btn btn-outline-dark me-2">All</div>
+          <div className="btn btn-outline-dark me-2"> Men's Clothing</div>
+          <div className="btn btn-outline-dark me-2"> Women's Clothing</div>
+          <div className="btn btn-outline-dark me-2"> Jewellary</div>
+          <div className="btn btn-outline-dark me-2"> Electronic</div>
+        </div>
+        {filter.map(
+          (Products = () => {
+            return (
+              <>
+                <div className="col-md-3">
+                  <div class="card">
+                    <img
+                      src={Products.image}
+                      class="card-img-top"
+                      alt={Products.title}
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">{Products.title}</h5>
+                      <p class="card-text">${Products.price}</p>
+                      <a href="#" class="btn btn-primary">
+                        Go somewhere
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </>
+            );
+          })
+        )}
+      </>
+    );
+  };
 
   return (
     <div>
@@ -35,7 +77,9 @@ export default function Products() {
             <hr />
           </div>
         </div>
-        <div className="row justify-content-center"></div>
+        <div className="row justify-content-center">
+          {loading ? <Loading /> : <ShowProducts />}
+        </div>
       </div>
     </div>
   );
