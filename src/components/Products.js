@@ -36,6 +36,7 @@ export default function Products() {
           <div className="btn btn-outline-dark me-2"> Women's Clothing</div>
           <div className="btn btn-outline-dark me-2"> Jewellary</div>
           <div className="btn btn-outline-dark me-2"> Electronic</div>
+          <div className="btn btn-outline-dark me-2"> Electronic</div>
         </div>
         {filter.map(
           (Products = () => {
