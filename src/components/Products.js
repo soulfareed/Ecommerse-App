@@ -8,7 +8,7 @@ export default function Products() {
   let componentMounted = true;
   useEffect(() => {
     const getProducts = async () => {
-      setLoading = true;
+      setLoading(true);
       const response = await fetch("https://fakestoreapi.com/products");
       if (componentMounted) {
         setData(await response.clone().json());
@@ -31,37 +31,37 @@ export default function Products() {
     return (
       <>
         <div className="button d-flex justify-content-center mb-5 pb-5">
-          <div className="btn btn-outline-dark me-2">All</div>
-          <div className="btn btn-outline-dark me-2"> Men's Clothing</div>
-          <div className="btn btn-outline-dark me-2"> Women's Clothing</div>
-          <div className="btn btn-outline-dark me-2"> Jewellary</div>
-          <div className="btn btn-outline-dark me-2"> Electronic</div>
-          <div className="btn btn-outline-dark me-2"> Electronic</div>
+          <button className="btn btn-outline-dark me-2">All</button>
+          <button className="btn btn-outline-dark me-2"> Men's Clothing</button>
+          <button className="btn btn-outline-dark me-2">
+            {" "}
+            Women's Clothing
+          </button>
+          <button className="btn btn-outline-dark me-2"> Jewellary</button>
+          <button className="btn btn-outline-dark me-2"> Electronic</button>
         </div>
-        {filter.map(
-          (Products = () => {
-            return (
-              <>
-                <div className="col-md-3">
-                  <div class="card">
-                    <img
-                      src={Products.image}
-                      class="card-img-top"
-                      alt={Products.title}
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">{Products.title}</h5>
-                      <p class="card-text">${Products.price}</p>
-                      <a href="#" class="btn btn-primary">
-                        Go somewhere
-                      </a>
-                    </div>
+        {filter.map((Product) => {
+          return (
+            <>
+              <div className="col-md-3">
+                <div className="card h-100 text-center p-4" key={Product.id}>
+                  <img
+                    src={Product.image}
+                    className="card-img-top"
+                    alt={Product.title}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{Product.title}</h5>
+                    <p className="card-text">${Product.price}</p>
+                    <a href="#" className="btn btn-primary">
+                      purchase now
+                    </a>
                   </div>
                 </div>
-              </>
-            );
-          })
-        )}
+              </div>
+            </>
+          );
+        })}
       </>
     );
   };
