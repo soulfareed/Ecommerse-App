@@ -47,11 +47,11 @@ export default function Products() {
                 <div className="card h-100 text-center p-4" key={Product.id}>
                   <img
                     src={Product.image}
-                    className="card-img-top"
+                    className="card-img-top h-40"
                     alt={Product.title}
                   />
                   <div className="card-body">
-                    <h5 className="card-title">{Product.title}</h5>
+                    <h5 className="card-title h-40">{Product.title}</h5>
                     <p className="card-text">${Product.price}</p>
                     <a href="#" className="btn btn-primary">
                       purchase now
